@@ -4,19 +4,16 @@
 
 @section('content')
 
-    {{-- TÍTULO ORIGINAL RESTAURADO --}}
     <div class="text-center mb-5">
         <h1 class="display-5">Bem-vindo ao Sistema de Solução de Problemas</h1>
     </div>
 
-    {{-- Exibe a mensagem de sucesso global --}}
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    {{-- Cabeçalho da lista de problemas --}}
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="h4 mb-0">Problemas Cadastrados</h2>
         <a href="{{ route('problema.form') }}" class="btn btn-primary">
@@ -28,7 +25,6 @@
     <div class="card mb-4" >
         <div class="card-header d-flex justify-content-between align-items-center ">
             
-            {{-- TÍTULO E STATUS À ESQUERDA --}}
             <div>
                 <h5 class="mb-0 d-inline-block">{{ $problema->titulo }}</h5>
                 @if ($problema->acoes->isNotEmpty())
@@ -38,7 +34,6 @@
                 @endif
             </div>
 
-            {{-- BOTÕES EDITAR E EXCLUIR MOVIDOS PARA CIMA, À DIREITA --}}
             <div>
                 <a href="{{ route('problema.show', $problema) }}" class="btn btn-primary btn-sm">
                 <i class="bi bi-eye"></i> Ver Detalhes
@@ -54,7 +49,6 @@
         </div>
 
         <div class="card-footer text-end">
-            {{-- BOTÃO DETALHES MANTIDO EMBAIXO --}}
                @can ('update', $problema)
                     <a href="{{ route('problema.editar', $problema) }}" class="btn btn-warning btn-sm" title="Editar">
                         <i class="bi bi-pencil"></i>

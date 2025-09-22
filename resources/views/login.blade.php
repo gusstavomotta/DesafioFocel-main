@@ -11,7 +11,6 @@
             </div>
             <div class="card-body">
 
-                {{-- Bloco para exibir erros de validação ou falha no login --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">

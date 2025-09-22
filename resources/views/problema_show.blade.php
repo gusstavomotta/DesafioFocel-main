@@ -3,13 +3,11 @@
 @section('title', 'Detalhes: ' . $problema->titulo)
 
 @section('content')
-    {{-- CABEÇALHO DA PÁGINA --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0">{{ $problema->titulo }}</h1>
         <a href="{{ route('home') }}" class="btn btn-secondary btn-sm">← Voltar para a lista</a>
     </div>
 
-    {{-- CARD COM DETALHES DO PROBLEMA --}}
     <div class="card mb-4">
         <div class="card-header">
             Detalhes do Problema
@@ -25,14 +23,12 @@
         </div>
     </div>
     
-    {{-- SEÇÃO DO PLANO DE AÇÃO --}}
     <div class="card">
         <div class="card-header">
             <h2 class="h4 mb-0">Plano de Ação (5W1H)</h2>
         </div>
         <div class="card-body">
             @if ($problema->acoes->isEmpty())
-                {{-- FORMULÁRIO PARA ADICIONAR A PRIMEIRA AÇÃO --}}
                 <h3 class="h5">Adicionar Nova Ação</h3>
                 <form action="{{ route('acoes.submit', $problema) }}" method="POST" class="mt-3">
                     @csrf
